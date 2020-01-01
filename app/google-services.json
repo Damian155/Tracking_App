@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1026795729874",
+    "firebase_url": "https://new-authentication-firebase.firebaseio.com",
+    "project_id": "new-authentication-firebase",
+    "storage_bucket": "new-authentication-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1026795729874:android:a79d48217880e7e69e8e0b",
+        "android_client_info": {
+          "package_name": "com.dqt.thanhdu.newauthenticationfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1026795729874-6jnni6t0svuetm37cplkc1trripfpq5b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJtAfWnq2oq3JOl0eAKRp1UxroSojI7hU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1026795729874-6jnni6t0svuetm37cplkc1trripfpq5b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
