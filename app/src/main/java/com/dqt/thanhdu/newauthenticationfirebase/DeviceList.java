@@ -64,7 +64,6 @@ public class DeviceList extends AppCompatActivity {
     {
         pairedDevices = myBluetooth.getBondedDevices();
         ArrayList list = new ArrayList();
-
         if (pairedDevices.size()>0)
         {
             for(BluetoothDevice bt : pairedDevices)

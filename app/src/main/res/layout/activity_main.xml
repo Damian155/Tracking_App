@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvDesc"
         android:transitionName="tvLogin"
-        android:layout_alignLeft="@+id/tvDesc"
+        android:layout_alignLeft="@id/tvDesc"
         android:elevation="5dp"
         android:text="Login"
         android:textColor="@color/colorWhite"
@@ -176,11 +176,24 @@
                     android:src="@drawable/ic_add" />
             </RelativeLayout>
 
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cv"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="@color/colorPurple"
+                android:layout_centerHorizontal="true"
+                android:buttonTint="@color/colorPurpleT"
+                android:text="Remember me" />
+
             <TextView
                 android:id="@+id/tvForgot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/cv"
+                android:layout_below="@+id/checkBox"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
                 android:elevation="5dp"

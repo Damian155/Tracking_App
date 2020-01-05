@@ -3,6 +3,7 @@ package com.dqt.thanhdu.newauthenticationfirebase;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class SignUp extends AppCompatActivity {
     Button btnDangKy;
+    ImageButton backBtn;
     EditText edtEmailDangKy, edtPasswordDangKy, edtRetypePass;
     FirebaseAuth mAuthen;
     @Override
@@ -25,6 +27,14 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
         mAuthen = FirebaseAuth.getInstance();
         Anhxa();
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SignUp.this,MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         btnDangKy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,6 +58,7 @@ public class SignUp extends AppCompatActivity {
         edtEmailDangKy = (EditText) findViewById(R.id.edtEmailDangKy);
         edtPasswordDangKy = (EditText) findViewById(R.id.edtPasswordDangKy);
         edtRetypePass = (EditText) findViewById(R.id.edtRetypePass);
+        backBtn = (ImageButton) findViewById(R.id.backBtn);
     }
     public void DangKy() {
         String email = edtEmailDangKy.getText().toString();

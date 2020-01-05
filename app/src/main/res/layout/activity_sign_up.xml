@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".SignUp">
 
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/bgHeader"
         android:layout_width="match_parent"
@@ -145,5 +146,18 @@
             </RelativeLayout>
         </RelativeLayout>
     </ScrollView>
-
+    <ImageButton
+        android:id="@+id/backBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/backbutton"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:paddingBottom="1dp"
+        android:paddingLeft="1dp"
+        android:paddingRight="1dp"
+        android:paddingTop="1dp"
+        android:background="@drawable/transparentbackbtn"
+        android:elevation="10dp" />
 </RelativeLayout>

@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".SignUp"
-            android:parentActivityName=".MainActivity"></activity>
+            android:theme="@style/AppTheme.FullScreen"></activity>
         <activity android:name=".GPSActivity"></activity>
         <activity
             android:name=".Splash"
@@ -24,11 +24,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DeviceList" />
-        <activity android:name=".buzzerControl" />
+        <activity android:name=".DeviceList"
+            android:theme="@style/AppTheme1"/>
+        <activity android:name=".buzzerControl"
+            android:theme="@style/AppTheme1"/>
         <activity
-            android:name=".NextActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name=".NextActivity" />
         <activity android:name=".MainActivity"
             android:theme="@style/AppTheme.FullScreen"
             ></activity>
