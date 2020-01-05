@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -17,8 +18,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnDangky, btnDangNhap;
-    EditText edtEmail, edtPassword, edtEmailDangNhap, edtPasswordDangNhap;
+    Button btnDangNhap;
+    ImageButton btnQuaDangky;
+    EditText edtEmailDangNhap, edtPasswordDangNhap;
     FirebaseAuth mAuthen;
 
     @Override
@@ -27,17 +29,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mAuthen = FirebaseAuth.getInstance();
         Anhxa();
-        btnDangky.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String email = edtEmail.getText().toString();
-                String password = edtPassword.getText().toString();
-                if (email.isEmpty() || password.isEmpty()) {
-                    Toast.makeText(MainActivity.this, "Email hoặc mật khẩu bị bỏ trống ", Toast.LENGTH_SHORT).show();
-                }else
-                DangKy();
-            }
-        });
         btnDangNhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,47 +40,19 @@ public class MainActivity extends AppCompatActivity {
                 DangNhap();
             }
         });
-
+        btnQuaDangky.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,SignUp.class));
+            }
+        });
     }
 
     public void Anhxa() {
-        btnDangky = (Button) findViewById(R.id.btnDangKy);
+        btnQuaDangky = (ImageButton) findViewById(R.id.btnQuaDangKy);
         btnDangNhap = (Button) findViewById(R.id.btnDangNhap);
-        edtEmail = (EditText) findViewById(R.id.edtEmail);
-        edtPassword = (EditText) findViewById(R.id.edtPassword);
         edtEmailDangNhap = (EditText) findViewById(R.id.edtEmailDangNhap);
         edtPasswordDangNhap = (EditText) findViewById(R.id.edtPasswordDangNhap);
-    }
-
-    public void DangKy() {
-        String email = edtEmail.getText().toString();
-        String password = edtPassword.getText().toString();
-        mAuthen.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Toast.makeText(MainActivity.this, "Thành Công", Toast.LENGTH_SHORT).show();
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            //Log.d("TAG", "onComplete: Failed=" + task.getException().getMessage());
-                            String errors=task.getException().getMessage();
-                            switch (errors) {
-                                case "The email address is already in use by another account.":
-                                    Toast.makeText(MainActivity.this, "Tài khoản đã tồn tại", Toast.LENGTH_SHORT).show();
-                                    break;
-                                case "The email address is badly formatted.":
-                                    Toast.makeText(MainActivity.this, "Địa chỉ email không đúng định dạng", Toast.LENGTH_SHORT).show();
-                                        break;
-                                case "The given password is invalid.":
-                                    Toast.makeText(MainActivity.this, "Mật khẩu có ít nhất 6 ký tự", Toast.LENGTH_SHORT).show();
-                                    break;
-                            }
-                        }
-                        // ...
-                    }
-                });
     }
 
     public void DangNhap() {
