@@ -25,7 +25,8 @@ public class NextActivity extends AppCompatActivity {
         wifi_gps_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent1 = new Intent(NextActivity.this, GPSActivity.class);
+                startActivity(intent1);
             }
         });
     }
