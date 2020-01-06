@@ -81,7 +81,7 @@ public class SignUp extends AppCompatActivity {
                                 case "The email address is badly formatted.":
                                     Toast.makeText(SignUp.this, "Địa chỉ email không đúng định dạng", Toast.LENGTH_SHORT).show();
                                     break;
-                                case "The given password is invalid.":
+                                case "The given password is invalid.[Password should be at least 6 characters]":
                                     Toast.makeText(SignUp.this, "Mật khẩu có ít nhất 6 ký tự", Toast.LENGTH_SHORT).show();
                                     break;
                             }

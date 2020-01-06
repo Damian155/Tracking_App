@@ -100,9 +100,6 @@ public class MainActivity extends AppCompatActivity {
                                 preferences.edit().clear().apply();
                             }
                             startActivity(new Intent(MainActivity.this,NextActivity.class));
-                            edtEmailDangNhap.getText().clear();
-                            edtPasswordDangNhap.getText().clear();
-                            remember.setChecked(false);
                             finish();
                         } else {
                             // If sign in fails, display a message to the user.

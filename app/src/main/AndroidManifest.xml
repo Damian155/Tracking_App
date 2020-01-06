@@ -40,7 +40,8 @@
         <activity
             android:name=".buzzerControl"
             android:theme="@style/AppTheme1" />
-        <activity android:name=".NextActivity" />
+        <activity android:name=".NextActivity"
+            android:theme="@style/AppTheme"/>
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.FullScreen" />

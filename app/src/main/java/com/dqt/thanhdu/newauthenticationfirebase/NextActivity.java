@@ -1,14 +1,19 @@
 package com.dqt.thanhdu.newauthenticationfirebase;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -17,7 +22,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class NextActivity extends AppCompatActivity {
-    Button blue_buzz_btn, wifi_gps_btn, logout_btn;
+    LinearLayout gpsLay,buzLay;
+    ImageButton logout_btn;
     private static final String PREFS_NAME = "PresFile";
 //    FirebaseDatabase database = FirebaseDatabase.getInstance();
 //    DatabaseReference myRef = database.getReference();
@@ -54,18 +60,17 @@ public class NextActivity extends AppCompatActivity {
 //            }
 //        });
 
-
-        blue_buzz_btn = (Button) findViewById(R.id.buzzer_btn);
-        wifi_gps_btn = (Button) findViewById(R.id.gps_btn);
-        logout_btn = (Button) findViewById(R.id.logout_btn);
-        blue_buzz_btn.setOnClickListener(new View.OnClickListener() {
+        buzLay = (LinearLayout) findViewById(R.id.buzLay);
+        gpsLay = (LinearLayout) findViewById(R.id.gpsLay);
+        logout_btn = (ImageButton) findViewById(R.id.logout_btn);
+        buzLay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(NextActivity.this, DeviceList.class);
                 startActivity(intent);
             }
         });
-        wifi_gps_btn.setOnClickListener(new View.OnClickListener() {
+        gpsLay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent1 = new Intent(NextActivity.this, Maps.class);
@@ -80,9 +85,24 @@ public class NextActivity extends AppCompatActivity {
         logout_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences preferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-                preferences.edit().clear().apply();
-                finish();
+                AlertDialog.Builder builder = new AlertDialog.Builder(NextActivity.this);
+                builder.setMessage("Are you sure you want to logout?")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Intent intent2 = new Intent(NextActivity.this,MainActivity.class);
+                                startActivity(intent2);
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alert = builder.create();
+                alert.show();
+
             }
         });
     }
