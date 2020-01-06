@@ -3,4 +3,5 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_led_control">ledControl</string>
     <string name="title_activity_about">AboutActivity</string>
+    <string name="map_api_key">AIzaSyCg1EkbCKZfX_wXuYnes5zgSFs8gM34hk0</string>
 </resources>

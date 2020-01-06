@@ -4,6 +4,9 @@
 
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -12,9 +15,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SignUp"
-            android:theme="@style/AppTheme.FullScreen"></activity>
-        <activity android:name=".GPSActivity"></activity>
+        <activity android:name=".Maps"></activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/map_api_key" />
+
+        <activity
+            android:name=".SignUp"
+            android:theme="@style/AppTheme.FullScreen" />
+        <activity android:name=".GPSActivity" />
         <activity
             android:name=".Splash"
             android:theme="@style/AppTheme1">
@@ -24,15 +34,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DeviceList"
-            android:theme="@style/AppTheme1"/>
-        <activity android:name=".buzzerControl"
-            android:theme="@style/AppTheme1"/>
         <activity
-            android:name=".NextActivity" />
-        <activity android:name=".MainActivity"
-            android:theme="@style/AppTheme.FullScreen"
-            ></activity>
+            android:name=".DeviceList"
+            android:theme="@style/AppTheme1" />
+        <activity
+            android:name=".buzzerControl"
+            android:theme="@style/AppTheme1" />
+        <activity android:name=".NextActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.FullScreen" />
     </application>
 
 </manifest>
